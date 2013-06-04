@@ -20,11 +20,11 @@ class GatheringsController < ApplicationController
   end
 
   def edit
-    @gathering = current_member.created_gatherings.find params[:id]
+    @gathering = current_member.created_gatherings.friendly.find params[:id]
   end
 
   def update
-    @gathering = current_member.created_gatherings.find params[:id]
+    @gathering = current_member.created_gatherings.friendly.find params[:id]
     @gathering.attributes = gathering_params
     if @gathering.save
       redirect_to :root
@@ -34,13 +34,13 @@ class GatheringsController < ApplicationController
   end
 
   def destroy
-    @gathering = current_member.created_gatherings.find params[:id]
+    @gathering = current_member.created_gatherings.friendly.find params[:id]
     @gathering.destroy
     redirect_to :root
   end
 
   def show
-    @gathering = Gathering.find params[:id]
+    @gathering = Gathering.friendly.find params[:id]
   end
 
   private

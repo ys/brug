@@ -1,4 +1,5 @@
 class Gathering < ActiveRecord::Base
+  extend FriendlyId
   KINDS = %w[burger beer conference hacking presentations]
 
   has_many :participations
@@ -9,14 +10,14 @@ class Gathering < ActiveRecord::Base
 
   validates_presence_of :name, :location, :start_at, :description, :kind
 
+  friendly_id :name, use: :slugged
+
   def participation
     case members.count
     when 0
       "No one is attending yet"
-    when 1
-      "1 person attending"
     else
-      "#{members.count} people attending"
+      "#{pluralize(members.count, 'person')} attending"
     end
   end
 end

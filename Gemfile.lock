@@ -69,6 +69,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    friendly_id (4.0.9)
     git (1.2.5)
     haml (4.0.3)
       tilt
@@ -183,6 +184,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner (~> 1.0.1)
   dotenv-rails
+  friendly_id
   haml-rails
   httparty (~> 0.11.0)
   jquery-rails (= 2.1.4)
